@@ -1,7 +1,8 @@
 {
+  "type": "module",
   "name": "escola-api",
   "version": "1.0.0",
-  "description": "Utilizando NODEjS + EXPRESSjs com CRUD",
+  "description": "Utilizando NODEjS + EXPRESSJS com CRUD",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
