@@ -6,7 +6,7 @@ app.get('/',(req,res) =>{
     res.send('Raiz da API NODEJS + EXPRESS + MYSQL')
 }) 
 
-app.post('/alunos',(req,res) => {
+app.post('/',(req,res) => {
     res.send('Alunos')
 })
 
