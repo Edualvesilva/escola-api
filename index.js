@@ -1,8 +1,8 @@
 import express from 'express';
-import {LerAlunos,inserir,lerUM,Atualizar} from './src/aluno.js';
+import {LerAlunos,inserir,lerUM,Atualizar,excluir} from './src/aluno.js';
 
 const app = express();
-const porta = 8080;
+const porta = process.env.PORT || 3306;
 
 // Adicionando suporte ao formato Json
 app.use(express.json())
@@ -34,7 +34,9 @@ app.post('/alunos',(req,res) => {
 })
 
 app.delete('/alunos/:id',(req,res) =>{
-    res.send('Aluno em especifico')
+   // res.send('Aluno em especifico')
+   const id = req.params.id
+   excluir(id,res)
 })
 
 app.patch('/alunos/:id',(req,res) => {

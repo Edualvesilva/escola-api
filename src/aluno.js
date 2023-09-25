@@ -78,4 +78,4 @@ function excluir(id,res){
     })
 }
 
-export { LerAlunos,inserir,lerUM,Atualizar };
+export { LerAlunos,inserir,lerUM,Atualizar,excluir };
