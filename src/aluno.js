@@ -66,4 +66,16 @@ function Atualizar(id,aluno,res){
     })
 }
 
+// EXCLUIR aluno da base de dados
+function excluir(id,res){
+    const sql = "DELETE FROM alunos WHERE id = ?";
+    conexao.query(sql,id,(erro,resultados) => {
+        if(erro){
+            res.status(400).json(erro.code)
+        } else{
+            res.status(200).json({"Status" : "Aluno excluído",id})
+        }
+    })
+}
+
 export { LerAlunos,inserir,lerUM,Atualizar };
