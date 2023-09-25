@@ -35,5 +35,35 @@ function inserir(aluno, res) {
     })
 }
 
-export { LerAlunos };
-export { inserir }
+// Ler um Aluno
+function lerUM(id,res){
+    const sql = "SELECT * FROM alunos WHERE id = ?";
+    conexao.query(sql,id,(erro,resultados) => {
+        if(resultados === 0){
+            res.status(204).end();
+            return
+        }
+        if(erro){
+            res.status(400).json(erro.code)
+        } else{
+            res.status(200).json(resultados[0])
+        }
+    }) 
+
+    }
+
+
+// Atualizar todos/alguns dados de um aluno
+function Atualizar(id,aluno,res){
+    const sql = "UPDATE alunos SET ? WHERE id = ?";
+    conexao.query(sql,[aluno,id],(erro,resultados) => {
+        if(erro){
+            res.status(400).json(erro.code)
+        } else{
+            // res.status(200).json({"Status" : "Atualizado com sucesso"})
+            res.status(200).json({...aluno,id}) // spread operator
+        }
+    })
+}
+
+export { LerAlunos,inserir,lerUM,Atualizar };

@@ -1,5 +1,5 @@
 import express from 'express';
-import {LerAlunos,inserir} from './src/aluno.js';
+import {LerAlunos,inserir,lerUM,Atualizar} from './src/aluno.js';
 
 const app = express();
 const porta = 8080;
@@ -22,7 +22,9 @@ app.get('/alunos',(req,res) => {
 })
 
 app.get('/alunos/:id',(req,res) => {
-    res.send('Aluno em especifico')
+   // res.send('Aluno em especifico')
+   const id = parseInt(req.params.id)
+   lerUM(id,res)
 })
 
 /* Rota para Todos os Alunos porque quando Você colocar um novo aluno o ID será auto-incrementado,ou seja, você está adicionando um novo aluno em "/alunos" */
@@ -36,7 +38,10 @@ app.delete('/alunos/:id',(req,res) =>{
 })
 
 app.patch('/alunos/:id',(req,res) => {
-    res.send('Aluno em especifico')
+   // res.send('Atualizando')
+   const id = parseInt(req.params.id)
+   const aluno = req.body
+   Atualizar(id,aluno,res)
 })
 
 // Executando o Servidor
