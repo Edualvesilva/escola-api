@@ -1,5 +1,6 @@
 import express from 'express';
 import {LerAlunos,inserir,lerUM,Atualizar,excluir} from './src/aluno.js';
+import cors from 'cors';
 
 const app = express();
 const porta = process.env.PORT || 3306; // permitindo que o servidor aponte a melhor porta ou então, Usamos a porta 3306
@@ -10,6 +11,8 @@ app.use(express.json())
 // Adicionando Suporte a dados vindos de formulários
 app.use(express.urlencoded({extended: true}))
 
+// permitindo acesso aos arquivos da API
+app.use(cors())
 
 app.get('/',(req,res) =>{
     res.redirect(`https://documenter.getpostman.com/view/29885686/2s9YJZ34YP`)
