@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true}))
 
 
 app.get('/',(req,res) =>{
-    res.send('Raiz da API NODEJS + EXPRESS + MYSQL')
+    res.redirect(`https://documenter.getpostman.com/view/29885686/2s9YJZ34YP`)
 }) 
 
 
